@@ -7,126 +7,138 @@
   <title>Pracownia Oversize — wnętrza i ogrody</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Bodoni+Moda:opsz,wght@6..96,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Pracownia Oversize">
-      <img src="logo.png" alt="Pracownia Oversize">
-    </a>
-    <nav class="nav" aria-label="Nawigacja główna">
+  <header class="header" id="top">
+    <a class="brand" href="#top" aria-label="Pracownia Oversize"><img src="logo.png" alt="Pracownia Oversize"></a>
+    <nav class="nav" aria-label="Nawigacja">
       <a href="#realizacje">Realizacje</a>
       <a href="#oferta">Oferta</a>
       <a href="#proces">Proces</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <button class="menu-toggle" aria-label="Otwórz menu" aria-expanded="false"><span></span><span></span></button>
+    <button class="menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
   </header>
 
   <main>
-    <section class="hero" aria-label="Pracownia Oversize">
-      <div class="hero-media" aria-hidden="true"></div>
-      <div class="hero-shade" aria-hidden="true"></div>
-      <h1 class="hero-title">PRZESTRZEŃ<br>W DETALU.</h1>
+    <section class="hero">
+      <img class="hero__img" src="hero.jpg" alt="Ciemne minimalistyczne wnętrze">
+      <div class="hero__veil"></div>
+      <h1 class="hero__title">PRZESTRZEŃ<br>W DETALU.</h1>
+      <div class="hero__index">01 / OVERSIZE</div>
+      <a class="hero__scroll" href="#intro" aria-label="Przejdź niżej"><span></span></a>
     </section>
 
-    <section class="intro section-space reveal">
-      <p class="eyebrow">Pracownia Oversize</p>
-      <blockquote>Wnętrze i ogród traktujemy jako jedną całość.</blockquote>
-      <p class="intro-copy">Projekt prowadzimy od pierwszej rozmowy po etap realizacji. Bez nadmiaru — z naciskiem na funkcję, materiały i rozwiązania, które mają sens także po latach.</p>
+    <section class="intro section" id="intro">
+      <div class="intro__kicker reveal">Pracownia wnętrz i ogrodów</div>
+      <div class="intro__copy reveal">
+        <h2>Projekt zaczyna się od tego, jak chcesz żyć.</h2>
+        <p>Wnętrze, ogród i otoczenie domu traktujemy jako jeden projekt. Funkcja ma działać, materiały mają dobrze się starzeć, a całość powinna być Twoja.</p>
+      </div>
     </section>
 
-    <section class="separator separator--detail reveal" aria-label="Detal">
-      <img src="przerywnik-detal.jpg" alt="Minimalistyczny detal wnętrza w ciepłym świetle">
-      <p>Najpierw proporcje.<br>Potem reszta.</p>
+    <section class="breather breather--dark reveal">
+      <img src="przerywnik-01.jpg" alt="Minimalistyczny detal wnętrza" loading="lazy">
+      <div class="breather__text">Mniej rzeczy.<br>Więcej sensu.</div>
     </section>
 
-    <section class="projects section-space" id="realizacje">
+    <section class="projects section" id="realizacje">
       <div class="section-head reveal">
-        <p class="eyebrow">Wybrane realizacje</p>
-        <h2>WNĘTRZA / OGRODY</h2>
+        <span>01</span>
+        <h2>WYBRANE REALIZACJE</h2>
+        <a href="#kontakt">Zapytaj o projekt</a>
       </div>
 
-      <article class="project-row reveal">
-        <div class="project-media"><img src="projekt-lazienka.jpg" alt="Projekt łazienki Pracowni Oversize" loading="lazy"></div>
-        <div class="project-meta"><span>01</span><h3>Łazienka</h3><p>Wnętrze</p></div>
-      </article>
-
-      <article class="project-row project-row--reverse reveal">
-        <div class="project-media"><img src="projekt-garderoba.jpg" alt="Projekt jasnej garderoby Pracowni Oversize" loading="lazy"></div>
-        <div class="project-meta"><span>02</span><h3>Garderoba</h3><p>Wnętrze</p></div>
-      </article>
-
-      <article class="project-row reveal">
-        <div class="project-media"><img src="projekt-ogrod.jpg" alt="Projekt ogrodu Pracowni Oversize" loading="lazy"></div>
-        <div class="project-meta"><span>03</span><h3>Ogród</h3><p>Otoczenie domu</p></div>
-      </article>
+      <div class="projects-grid">
+        <article class="project project--wide reveal">
+          <img src="projekt-wnetrze.jpg" alt="Projekt wnętrza" loading="lazy">
+          <div class="project__caption"><strong>Wnętrza</strong><span>dom / mieszkanie</span></div>
+        </article>
+        <article class="project reveal">
+          <img src="projekt-lazienka.jpg" alt="Projekt łazienki" loading="lazy">
+          <div class="project__caption"><strong>Łazienka</strong><span>projekt wykonawczy</span></div>
+        </article>
+        <article class="project reveal">
+          <img src="projekt-garderoba.jpg" alt="Projekt garderoby" loading="lazy">
+          <div class="project__caption"><strong>Garderoba</strong><span>zabudowa na wymiar</span></div>
+        </article>
+        <article class="project project--wide reveal">
+          <img src="projekt-ogrod.jpg" alt="Projekt ogrodu" loading="lazy">
+          <div class="project__caption"><strong>Ogród</strong><span>otoczenie domu</span></div>
+        </article>
+        <article class="project project--wide reveal">
+          <img src="projekt-elewacja.jpg" alt="Projekt elewacji" loading="lazy">
+          <div class="project__caption"><strong>Elewacja</strong><span>architektura i zieleń</span></div>
+        </article>
+      </div>
     </section>
 
-    <section class="manifest section-space reveal">
-      <p class="eyebrow">Podejście</p>
-      <p class="manifest-line">Nie projektujemy pod zdjęcie.</p>
-      <p class="manifest-line manifest-line--muted">Projektujemy do życia.</p>
+    <section class="statement section reveal">
+      <p>„Dobry projekt nie musi krzyczeć.”</p>
+      <div class="statement__line"></div>
     </section>
 
-    <section class="offer section-space" id="oferta">
+    <section class="offer section" id="oferta">
       <div class="section-head reveal">
-        <p class="eyebrow">Oferta</p>
-        <h2>ZAKRES WSPÓŁPRACY</h2>
+        <span>02</span>
+        <h2>OFERTA</h2>
       </div>
-      <div class="offer-list reveal">
-        <details><summary><span>01</span>Konsultacje projektowe<i>+</i></summary><p>Kierunek, materiały i konkretne rozwiązania przed startem prac.</p></details>
-        <details><summary><span>02</span>Projekt koncepcyjny<i>+</i></summary><p>Układ funkcjonalny, rzuty i fotorealistyczne wizualizacje.</p></details>
-        <details><summary><span>03</span>Projekt wykonawczy<i>+</i></summary><p>Koncepcja uzupełniona o pełną dokumentację dla wykonawców.</p></details>
-        <details><summary><span>04</span>Nadzór autorski<i>+</i></summary><p>Kontrola zgodności realizacji z projektem na etapie prac.</p></details>
-        <details><summary><span>05</span>Projektowanie online<i>+</i></summary><p>Projekt prowadzony zdalnie — koncepcyjny lub wykonawczy.</p></details>
-        <details><summary><span>06</span>Projekty mebli<i>+</i></summary><p>Dokumentacja techniczna mebli wykonywanych na zamówienie.</p></details>
-        <details><summary><span>07</span>Meble handmade<i>+</i></summary><p>Autorskie meble wykonywane przez współpracujących rzemieślników.</p></details>
-        <details><summary><span>08</span>Home staging<i>+</i></summary><p>Przygotowanie nieruchomości do sprzedaży lub wynajmu.</p></details>
-        <details><summary><span>09</span>Mieszkanie bez barier<i>+</i></summary><p>Rozwiązania dopasowane do szczególnych potrzeb użytkowników.</p></details>
+      <div class="offer-list">
+        <details class="reveal"><summary><span>01</span><b>Konsultacje projektowe</b><i>+</i></summary><p>Pomoc w układzie, kolorystyce, materiałach, dekoracjach i rozwiązaniach technicznych. Możemy też wskazać sprawdzone ekipy wykonawcze.</p></details>
+        <details class="reveal"><summary><span>02</span><b>Projekt koncepcyjny</b><i>+</i></summary><p>Indywidualny projekt wnętrza w formie rzutów i fotorealistycznych wizualizacji.</p></details>
+        <details class="reveal"><summary><span>03</span><b>Projekt wykonawczy</b><i>+</i></summary><p>Koncepcja, wizualizacje, rzuty i pełna dokumentacja techniczna gotowa dla wykonawców.</p></details>
+        <details class="reveal"><summary><span>04</span><b>Nadzór autorski</b><i>+</i></summary><p>Kontrola przebiegu prac i zgodności realizacji z projektem.</p></details>
+        <details class="reveal"><summary><span>05</span><b>Projektowanie online</b><i>+</i></summary><p>Projekt koncepcyjny lub wykonawczy prowadzony zdalnie, na podstawie przekazanych materiałów i inwentaryzacji.</p></details>
+        <details class="reveal"><summary><span>06</span><b>Projekty mebli</b><i>+</i></summary><p>Dokumentacja techniczna mebli i zabudów wykonywanych na zamówienie.</p></details>
+        <details class="reveal"><summary><span>07</span><b>Meble handmade</b><i>+</i></summary><p>Autorskie meble wykonywane na indywidualne zamówienie przez współpracujących fachowców.</p></details>
+        <details class="reveal"><summary><span>08</span><b>Home staging</b><i>+</i></summary><p>Przygotowanie nieruchomości do sprzedaży lub wynajmu — funkcjonalnie i wizualnie.</p></details>
+        <details class="reveal"><summary><span>09</span><b>Mieszkanie bez barier</b><i>+</i></summary><p>Praktyczne rozwiązania dla osób ze szczególnymi potrzebami, bez rezygnacji z estetyki.</p></details>
       </div>
     </section>
 
-    <section class="separator separator--garden reveal" aria-label="Projektowanie ogrodów">
-      <img src="przerywnik-ogrod.jpg" alt="Nowoczesny ogród po zmroku">
-      <p>DOM NIE KOŃCZY SIĘ<br>NA ELEWACJI.</p>
+    <section class="breather breather--garden reveal">
+      <img src="przerywnik-02.jpg" alt="Nowoczesny ogród nocą" loading="lazy">
+      <div class="breather__text breather__text--large">DOM NIE KOŃCZY SIĘ<br>NA ELEWACJI.</div>
     </section>
 
-    <section class="process section-space" id="proces">
-      <div class="section-head reveal"><p class="eyebrow">Proces</p><h2>TRZY ETAPY</h2></div>
+    <section class="process section" id="proces">
+      <div class="section-head reveal">
+        <span>03</span>
+        <h2>JAK PRACUJEMY</h2>
+      </div>
       <div class="process-grid">
-        <article class="reveal"><span>01</span><h3>Rozmowa</h3><p>Poznanie miejsca, potrzeb i założeń inwestycji.</p></article>
-        <article class="reveal"><span>02</span><h3>Projekt</h3><p>Koncepcja, materiały i dokumentacja dopasowana do zakresu.</p></article>
-        <article class="reveal"><span>03</span><h3>Realizacja</h3><p>Wsparcie na etapie prac i kontrola zgodności z projektem.</p></article>
+        <article class="reveal"><span>01</span><h3>Rozmowa</h3><p>Zaczynamy od miejsca, potrzeb i zakresu.</p></article>
+        <article class="reveal"><span>02</span><h3>Koncepcja</h3><p>Ustalamy układ, materiały i kierunek wizualny.</p></article>
+        <article class="reveal"><span>03</span><h3>Dokumentacja</h3><p>Przygotowujemy rozwiązania potrzebne do realizacji.</p></article>
+        <article class="reveal"><span>04</span><h3>Realizacja</h3><p>W razie potrzeby prowadzimy nadzór nad projektem.</p></article>
       </div>
     </section>
 
-    <section class="book-break section-space reveal">
-      <div class="book-copy">
-        <p class="eyebrow">Detal</p>
-        <blockquote>Materiały wybieramy po coś. Nie dla efektu.</blockquote>
-        <p>Kolor, faktura, światło i sposób wykonania muszą pracować razem. Wtedy projekt nie potrzebuje dekoracyjnego nadmiaru.</p>
-      </div>
-      <div class="book-image"><img src="przerywnik-ksiazka.jpg" alt="Książka i próbki materiałów Pracowni Oversize" loading="lazy"></div>
+    <section class="brand-break section reveal">
+      <div class="brand-break__img"><img src="przerywnik-03.jpg" alt="Próbki materiałów i notes Pracowni Oversize" loading="lazy"></div>
+      <div class="brand-break__copy"><span>Detal</span><h2>Materiały wybieramy po coś.</h2><p>Kolor, faktura, światło i sposób wykonania muszą pracować razem. Dopiero wtedy projekt jest spójny.</p></div>
     </section>
 
-    <section class="contact section-space" id="kontakt">
-      <p class="eyebrow reveal">Kontakt</p>
-      <h2 class="reveal">POROZMAWIAJMY.</h2>
-      <div class="contact-grid reveal">
+    <section class="contact section" id="kontakt">
+      <div class="contact__top reveal">
+        <span>04</span>
+        <h2>POROZMAWIAJMY.</h2>
+      </div>
+      <div class="contact__grid reveal">
         <a href="tel:+48607112841"><small>Telefon</small><strong>607 112 841</strong></a>
         <a href="mailto:biuro@pracowniaoversize.pl"><small>E-mail</small><strong>biuro@pracowniaoversize.pl</strong></a>
         <div><small>Godziny</small><strong>9:00–17:00</strong></div>
       </div>
-      <a class="contact-cta reveal" href="mailto:biuro@pracowniaoversize.pl">Napisz do nas <span>↗</span></a>
+      <a class="contact__cta reveal" href="mailto:biuro@pracowniaoversize.pl">Napisz do nas <span>↗</span></a>
     </section>
   </main>
 
   <footer class="footer">
-    <img src="logo.png" alt="" aria-hidden="true">
-    <p>© 2026 Pracownia Oversize</p>
-    <div><a href="mailto:biuro@pracowniaoversize.pl">E-mail</a><a href="#top">Do góry ↑</a></div>
+    <img src="logo.png" alt="">
+    <span>© 2026 Pracownia Oversize</span>
+    <a href="#top">Do góry ↑</a>
   </footer>
 
   <script src="script.js"></script>

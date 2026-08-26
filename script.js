@@ -1,42 +1,41 @@
-const header = document.querySelector('.site-header');
-const heroMedia = document.querySelector('.hero-media');
-const menu = document.querySelector('.nav');
-const toggle = document.querySelector('.menu-toggle');
+const header = document.querySelector('.header');
+const heroImg = document.querySelector('.hero__img');
+const nav = document.querySelector('.nav');
+const menu = document.querySelector('.menu');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const onScroll = () => {
+function onScroll(){
   const y = window.scrollY;
   header.classList.toggle('is-scrolled', y > 24);
-  if (heroMedia && y < window.innerHeight * 1.15 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    heroMedia.style.transform = `scale(1.03) translate3d(0, ${y * 0.055}px, 0)`;
+  if(heroImg && !reduce && y < innerHeight * 1.1){
+    heroImg.style.transform = `scale(1.03) translate3d(0,${y * .04}px,0)`;
   }
-};
-window.addEventListener('scroll', onScroll, {passive:true});
+}
+addEventListener('scroll', onScroll, {passive:true});
 onScroll();
 
-const observer = new IntersectionObserver(entries => {
+const io = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting){
       entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
+      io.unobserve(entry.target);
     }
   });
-}, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-toggle?.addEventListener('click', () => {
-  const open = menu.classList.toggle('is-open');
-  toggle.setAttribute('aria-expanded', String(open));
+menu?.addEventListener('click',()=>{
+  const open = nav.classList.toggle('is-open');
+  menu.setAttribute('aria-expanded',String(open));
 });
-menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  menu.classList.remove('is-open');
-  toggle?.setAttribute('aria-expanded', 'false');
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  nav.classList.remove('is-open');
+  menu?.setAttribute('aria-expanded','false');
 }));
 
-document.querySelectorAll('.offer-list details').forEach(item => {
-  item.addEventListener('toggle', () => {
-    if (!item.open) return;
-    document.querySelectorAll('.offer-list details[open]').forEach(other => {
-      if (other !== item) other.open = false;
-    });
+document.querySelectorAll('.offer-list details').forEach(item=>{
+  item.addEventListener('toggle',()=>{
+    if(!item.open)return;
+    document.querySelectorAll('.offer-list details[open]').forEach(other=>{if(other!==item)other.open=false});
   });
 });
