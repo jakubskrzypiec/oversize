@@ -31,13 +31,12 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: .12, rootMargin: '0px 0px -4% 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Keep only one service open at a time on desktop for a cleaner rhythm.
 const services = [...document.querySelectorAll('.service')];
 services.forEach(item => item.addEventListener('toggle', () => {
-  if (item.open && innerWidth > 700) services.forEach(other => { if (other !== item) other.open = false; });
+  if (item.open && innerWidth > 760) services.forEach(other => { if (other !== item) other.open = false; });
 }));
 
 const modal = document.querySelector('[data-lightbox-modal]');
@@ -64,15 +63,13 @@ form?.addEventListener('submit', e => {
   const data = new FormData(form);
   const subject = encodeURIComponent('Zapytanie ze strony — Pracownia Oversize');
   const body = encodeURIComponent(
-    `Imię i nazwisko: ${data.get('name') || ''}\nE-mail: ${data.get('email') || ''}\nTelefon: ${data.get('phone') || ''}\n\n${data.get('message') || ''}`
+    `Imię i nazwisko: ${data.get('name') || ''}\n` +
+    `E-mail: ${data.get('email') || ''}\n` +
+    `Telefon: ${data.get('phone') || ''}\n` +
+    `Lokalizacja: ${data.get('location') || ''}\n\n` +
+    `${data.get('message') || ''}`
   );
   location.href = `mailto:biuro@pracowniaoversize.pl?subject=${subject}&body=${body}`;
 });
 
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
-const cookie = document.querySelector('[data-cookie]');
-if (localStorage.getItem('oversize-cookie-ok') === '1') cookie?.classList.add('is-hidden');
-document.querySelector('[data-cookie-ok]')?.addEventListener('click', () => {
-  localStorage.setItem('oversize-cookie-ok','1');
-  cookie?.classList.add('is-hidden');
-});
