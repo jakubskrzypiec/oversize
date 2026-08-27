@@ -1,182 +1,286 @@
 <!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pracownia Oversize — projektowanie wnętrz, ogrodów i indywidualnych rozwiązań.">
-  <title>Pracownia Oversize — wnętrza i ogrody</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#171717" />
+  <meta name="description" content="Pracownia Oversize — projekty wnętrz i ogrodów w Jaśle. Projekty koncepcyjne, wykonawcze, meble, nadzór, ogrody i elewacje." />
+  <title>Pracownia Oversize | Wnętrza i krajobraz — Jasło</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@200;300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="topbar" id="top">
-    <a class="brand" href="#top" aria-label="Pracownia Oversize"><img src="logo.png" alt="Pracownia Oversize"></a>
-    <nav class="nav" aria-label="Nawigacja">
-      <a href="#studio">Studio</a>
-      <a href="#realizacje">Realizacje</a>
+  <div class="page-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#start" aria-label="Pracownia Oversize — strona główna">
+      <img src="logo-mark.png" alt="" />
+      <span class="brand-copy">
+        <strong>PRACOWNIA OVERSIZE</strong>
+        <small>wnętrza / krajobraz</small>
+      </span>
+    </a>
+    <nav class="desktop-nav" aria-label="Główna nawigacja">
+      <a href="#studio">Pracownia</a>
+      <a href="#projekty">Portfolio</a>
       <a href="#oferta">Oferta</a>
-      <a href="#proces">Proces</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <a class="top-cta" href="#kontakt">Umów rozmowę <span>↗</span></a>
-    <button class="menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    <button class="menu-button" type="button" aria-label="Otwórz menu" aria-expanded="false" data-menu-button>
+      <span></span><span></span>
+    </button>
   </header>
 
-  <main>
-    <section class="hero">
-      <img class="hero-media" src="hero.jpg" alt="Ciemne wnętrze Pracowni Oversize">
-      <div class="hero-shade"></div>
-      <div class="hero-copy">
-        <div class="hero-kicker">Pracownia wnętrz i ogrodów</div>
-        <h1>PRZESTRZEŃ<br>W DETALU.</h1>
-      </div>
-      <div class="hero-meta">
-        <span>Gliwice / Polska</span>
-        <span>Wnętrza • Ogrody • Nadzór</span>
-      </div>
-      <a class="scroll-cue" href="#studio"><span></span></a>
-    </section>
-
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>WNĘTRZA</span><i>✦</i><span>OGRODY</span><i>✦</i><span>NADZÓR</span><i>✦</i><span>MEBLE</span><i>✦</i><span>ONLINE</span><i>✦</i><span>HOME STAGING</span><i>✦</i>
-        <span>WNĘTRZA</span><i>✦</i><span>OGRODY</span><i>✦</i><span>NADZÓR</span><i>✦</i><span>MEBLE</span><i>✦</i><span>ONLINE</span><i>✦</i><span>HOME STAGING</span><i>✦</i>
-      </div>
+  <div class="mobile-menu" data-mobile-menu>
+    <div class="mobile-menu__inner">
+      <a href="#studio">Pracownia <em>01</em></a>
+      <a href="#projekty">Portfolio <em>02</em></a>
+      <a href="#oferta">Oferta <em>03</em></a>
+      <a href="#kontakt">Kontakt <em>04</em></a>
     </div>
+  </div>
 
-    <section class="studio section" id="studio">
-      <div class="eyebrow reveal">O pracowni</div>
-      <div class="studio-grid">
-        <h2 class="display reveal">DOM. WNĘTRZE.<br>OGRÓD.<br><em>Jeden projekt.</em></h2>
-        <div class="studio-copy reveal">
-          <p>Pracujemy nad całym otoczeniem domu — od układu wnętrza, przez meble i materiały, po ogród. Dzięki temu wszystkie elementy są spójne i mają wspólny rytm.</p>
-          <p>Nie projektujemy pod jeden styl. Najpierw poznajemy miejsce i sposób życia, później budujemy rozwiązania wokół konkretnych potrzeb.</p>
-          <a href="#oferta" class="text-link">Zobacz zakres współpracy <span>→</span></a>
+  <main>
+    <section class="hero" id="start">
+      <img class="hero__image" src="hero.jpg" alt="Minimalistyczne wnętrze w szarościach i kamieniu" fetchpriority="high" />
+      <div class="hero__veil"></div>
+      <div class="hero__content reveal">
+        <p class="micro-label">PRACOWNIA OVERSIZE — JASŁO</p>
+        <p class="hero__statement">Projektowanie wnętrz i ogrodów. Od pierwszej koncepcji po dokumentację wykonawczą.</p>
+        <div class="hero__actions">
+          <a class="button button--light" href="#projekty">Zobacz portfolio <span>↗</span></a>
+          <a class="button button--ghost" href="#oferta">Poznaj ofertę <span>↓</span></a>
         </div>
       </div>
+      <div class="hero__index" aria-hidden="true">01 / 05</div>
+      <a class="hero__scroll" href="#studio" aria-label="Przejdź niżej"><span></span>SCROLL</a>
     </section>
 
-    <section class="feature-break reveal">
-      <div class="feature-break-media"><img src="break-detail.png" alt="Minimalistyczny detal wnętrza"></div>
-      <div class="feature-break-copy">
-        <span>01 / Detal</span>
-        <h2>Materiały wybieramy<br>po coś.</h2>
-        <p>Światło, faktura i sposób wykonania mają znaczenie dopiero wtedy, gdy pracują razem.</p>
+    <section class="studio section" id="studio">
+      <div class="section-index reveal"><span>01</span><em>PRACOWNIA</em></div>
+      <div class="studio__main">
+        <div class="studio__headline reveal">
+          <p class="eyebrow">WNĘTRZA / KRAJOBRAZ / JASŁO</p>
+          <h1>Przestrzeń bez nadmiaru.<br><span>Projekt dopracowany w detalu.</span></h1>
+        </div>
+        <div class="studio__meta reveal">
+          <p>Pracownia Oversize łączy projektowanie wnętrz i krajobrazu. Zakres obejmuje projekty koncepcyjne i wykonawcze, projekty mebli, nadzór autorski, ogrody, elewacje oraz opracowania techniczne.</p>
+          <div class="studio__facts">
+            <span><b>ARCHITEKT</b> Małgorzata Warywoda</span>
+            <span><b>LOKALIZACJA</b> 38-200 Jasło</span>
+          </div>
+        </div>
       </div>
+      <div class="studio__line" aria-hidden="true"></div>
     </section>
 
-    <section class="projects section" id="realizacje">
-      <div class="section-top reveal">
-        <div class="eyebrow">Wybrane realizacje</div>
-        <h2 class="display">WNĘTRZA, KTÓRE<br>MAJĄ SWÓJ RYTM.</h2>
-        <a href="#kontakt" class="text-link">Zapytaj o projekt <span>→</span></a>
+    <section class="projects section" id="projekty">
+      <div class="projects__head reveal">
+        <div>
+          <p class="eyebrow">WYBRANE REALIZACJE</p>
+          <h2>Portfolio podzielone<br>na cztery historie.</h2>
+        </div>
+        <p class="projects__hint">Kliknij zdjęcie, aby zobaczyć je w pełnym kadrze.</p>
       </div>
 
-      <div class="project-row reveal">
-        <a class="project-card project-card--large" href="#kontakt">
-          <img src="projekt-wnetrze.jpg" alt="Projekt wnętrza">
-          <div class="project-label"><span>01</span><strong>Wnętrza</strong><em>dom / mieszkanie</em></div>
-        </a>
-        <a class="project-card project-card--small" href="#kontakt">
-          <img src="projekt-lazienka.jpg" alt="Projekt łazienki">
-          <div class="project-label"><span>02</span><strong>Łazienka</strong><em>projekt wykonawczy</em></div>
-        </a>
-      </div>
-      <div class="project-row project-row--reverse reveal">
-        <a class="project-card project-card--small" href="#kontakt">
-          <img src="projekt-garderoba.jpg" alt="Projekt garderoby">
-          <div class="project-label"><span>03</span><strong>Garderoba</strong><em>zabudowa na wymiar</em></div>
-        </a>
-        <a class="project-card project-card--large" href="#kontakt">
-          <img src="projekt-ogrod.jpg" alt="Projekt ogrodu">
-          <div class="project-label"><span>04</span><strong>Ogród</strong><em>otoczenie domu</em></div>
-        </a>
-      </div>
-      <div class="project-panorama reveal">
-        <img src="projekt-elewacja.jpg" alt="Projekt elewacji i ogrodu">
-        <div class="panorama-copy"><span>05</span><h3>Architektura<br>i zieleń.</h3></div>
-      </div>
+      <article class="project-story project-story--dark reveal">
+        <header class="project-story__title">
+          <span>01</span>
+          <div><h3>Łazienka / miedź i grafit</h3><p>WNĘTRZA — CIEMNA PALETA</p></div>
+        </header>
+        <div class="project-grid project-grid--a">
+          <button class="project-image project-image--wide" data-lightbox="project-bath-02.jpg"><img src="project-bath-02.jpg" alt="Łazienka w brązie i graficie" loading="lazy"></button>
+          <button class="project-image" data-lightbox="project-bath-01.jpg"><img src="project-bath-01.jpg" alt="Detal łazienki z podświetlanymi lustrami" loading="lazy"></button>
+          <button class="project-image project-image--tall" data-lightbox="project-bath-03.jpg"><img src="project-bath-03.jpg" alt="Łazienka z miedzianą kabiną prysznicową" loading="lazy"></button>
+        </div>
+      </article>
+
+      <article class="project-story reveal">
+        <header class="project-story__title">
+          <span>02</span>
+          <div><h3>Poddasze / jasny minimalizm</h3><p>WNĘTRZA — NATURALNE DREWNO</p></div>
+        </header>
+        <div class="project-grid project-grid--b">
+          <button class="project-image project-image--tall" data-lightbox="project-attic-01.jpg"><img src="project-attic-01.jpg" alt="Jasne wnętrze poddasza" loading="lazy"></button>
+          <button class="project-image" data-lightbox="project-attic-03.jpg"><img src="project-attic-03.jpg" alt="Toaletka z okrągłym lustrem" loading="lazy"></button>
+          <button class="project-image project-image--wide" data-lightbox="project-attic-02.jpg"><img src="project-attic-02.jpg" alt="Jasne poddasze z biurkiem" loading="lazy"></button>
+        </div>
+      </article>
+
+      <article class="project-story project-story--stone reveal">
+        <header class="project-story__title">
+          <span>03</span>
+          <div><h3>Dom / ogród i elewacja</h3><p>KRAJOBRAZ — ARCHITEKTURA ZEWNĘTRZNA</p></div>
+        </header>
+        <div class="project-grid project-grid--landscape">
+          <button class="project-image project-image--wide" data-lightbox="project-garden-01.jpg"><img src="project-garden-01.jpg" alt="Projekt ogrodu z tarasem" loading="lazy"></button>
+          <button class="project-image project-image--wide" data-lightbox="project-exterior-01.jpg"><img src="project-exterior-01.jpg" alt="Elewacja domu z drewnianymi detalami" loading="lazy"></button>
+        </div>
+      </article>
+
+      <article class="project-story reveal">
+        <header class="project-story__title">
+          <span>04</span>
+          <div><h3>Dom / natura i detal</h3><p>WNĘTRZA — CIEPŁA PALETA</p></div>
+        </header>
+        <div class="project-grid project-grid--c">
+          <button class="project-image project-image--wide" data-lightbox="project-rustic-01.jpg"><img src="project-rustic-01.jpg" alt="Salon z zieloną sofą" loading="lazy"></button>
+          <button class="project-image" data-lightbox="project-rustic-02.jpg"><img src="project-rustic-02.jpg" alt="Salon z drewnianymi detalami" loading="lazy"></button>
+          <button class="project-image" data-lightbox="project-rustic-03.jpg"><img src="project-rustic-03.jpg" alt="Jasna kuchnia" loading="lazy"></button>
+        </div>
+      </article>
     </section>
 
-    <section class="quote section reveal">
-      <div class="quote-mark">“</div>
-      <p>Dobry projekt nie potrzebuje nadmiaru. Potrzebuje proporcji, światła i konsekwencji.</p>
+    <section class="process-divider section">
+      <div class="process-divider__image reveal">
+        <img src="divider-notebook.jpg" alt="Notatnik projektowy na kamiennym stole" loading="lazy" />
+      </div>
+      <div class="process-divider__copy reveal">
+        <span class="section-no">02 / PROCES</span>
+        <h2>Od rozmowy,<br>przez szkic,<br>do wykonania.</h2>
+        <p>W zależności od potrzeb współpraca może objąć konsultacje, projekt koncepcyjny, pełny projekt wykonawczy, projektowanie online i nadzór nad realizacją.</p>
+        <a class="text-link" href="#oferta">Zobacz pełny zakres <span>→</span></a>
+      </div>
     </section>
 
     <section class="offer section" id="oferta">
-      <div class="offer-layout">
-        <aside class="offer-sticky reveal">
-          <div class="eyebrow">Oferta</div>
-          <h2 class="display">ZAKRES<br>WSPÓŁPRACY</h2>
-          <p>Od jednorazowej konsultacji po pełny projekt z dokumentacją i nadzorem.</p>
-        </aside>
-        <div class="offer-list">
-          <details class="reveal"><summary><span>01</span><b>Konsultacje projektowe</b><i>+</i></summary><p>Pomoc w aranżacji, kolorystyce, doborze materiałów, dekoracji i rozwiązaniach technicznych. W razie potrzeby wskazujemy również sprawdzone ekipy wykonawcze.</p></details>
-          <details class="reveal"><summary><span>02</span><b>Projekt koncepcyjny</b><i>+</i></summary><p>Indywidualny projekt wnętrza przedstawiony w formie rzutów i fotorealistycznych wizualizacji.</p></details>
-          <details class="reveal"><summary><span>03</span><b>Projekt wykonawczy</b><i>+</i></summary><p>Koncepcja, wizualizacje, rzuty i pełna dokumentacja techniczna gotowa do przekazania wykonawcom.</p></details>
-          <details class="reveal"><summary><span>04</span><b>Nadzór autorski</b><i>+</i></summary><p>Kontrola przebiegu prac i zgodności realizacji z projektem na kolejnych etapach.</p></details>
-          <details class="reveal"><summary><span>05</span><b>Projektowanie online</b><i>+</i></summary><p>Projekt koncepcyjny lub wykonawczy prowadzony zdalnie, na podstawie przekazanej dokumentacji i inwentaryzacji.</p></details>
-          <details class="reveal"><summary><span>06</span><b>Projekty mebli</b><i>+</i></summary><p>Pełna dokumentacja techniczna mebli i zabudów wykonywanych na indywidualne zamówienie.</p></details>
-          <details class="reveal"><summary><span>07</span><b>Meble handmade</b><i>+</i></summary><p>Autorskie meble tworzone we współpracy z fachowcami i rzemieślnikami.</p></details>
-          <details class="reveal"><summary><span>08</span><b>Home staging</b><i>+</i></summary><p>Przygotowanie nieruchomości do sprzedaży lub wynajmu poprzez zmianę układu, wyposażenia i sposobu prezentacji wnętrza.</p></details>
-          <details class="reveal"><summary><span>09</span><b>Mieszkanie bez barier</b><i>+</i></summary><p>Przemyślane rozwiązania uwzględniające szczególne potrzeby użytkowników bez rezygnacji z estetyki.</p></details>
+      <div class="offer__intro reveal">
+        <div class="section-index section-index--light"><span>03</span><em>OFERTA</em></div>
+        <div>
+          <p class="eyebrow eyebrow--light">PEŁNY ZAKRES PRACOWNI</p>
+          <h2>Nie pakiety.<br><span>Zakres dobierany do projektu.</span></h2>
         </div>
+        <p>Każdy wiersz rozwija opis usługi z obecnej strony Pracowni Oversize.</p>
+      </div>
+
+      <div class="services" data-services>
+        <details class="service" open>
+          <summary><span>01</span><strong>Konsultacje</strong><em>projektowe</em><i>+</i></summary>
+          <div><p>Pomoc w urządzaniu wnętrza, wskazówki dotyczące aranżacji, doboru kolorystyki, dekoracji, odpowiedzi na pytania z zakresu funkcjonalności, estetyki, dobór materiałów wykończeniowych, rozwiązań technicznych, jak również sprawdzonych ekip wykonawczych.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>02</span><strong>Projekt</strong><em>koncepcyjny</em><i>+</i></summary>
+          <div><p>Indywidualny projekt koncepcyjny wnętrza przedstawiony w postaci rzutów i fotorealistycznych wizualizacji.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>03</span><strong>Projekt</strong><em>wykonawczy</em><i>+</i></summary>
+          <div><p>Indywidualny projekt koncepcyjny zawierający fotorealistyczne wizualizacje, rzuty oraz pełną dokumentację techniczną wnętrza gotową do przekazania wykonawcom.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>04</span><strong>Nadzór</strong><em>autorski</em><i>+</i></summary>
+          <div><p>Wykonanie projektu koncepcyjnego wraz z nadzorem nad przebiegiem prac budowlanych, czuwanie nad zgodnością realizacji z wykonanym projektem.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>05</span><strong>Projektowanie</strong><em>online</em><i>+</i></summary>
+          <div><p>Projekt koncepcyjny wraz z wizualizacjami (możliwy również projekt wykonawczy po uprzednim przekazaniu stosownych dokumentów, inwentaryzacji) — całość projektu wykonywana online.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>06</span><strong>Projekty</strong><em>mebli</em><i>+</i></summary>
+          <div><p>Wykonanie pełnej dokumentacji technicznej dla wykonawców.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>07</span><strong>Meble</strong><em>handmade</em><i>+</i></summary>
+          <div><p>Unikatowe meble naszego autorskiego projektu, wykonane przez współpracujących z nami fachowców. Projektujemy meble na indywidualne zamówienie.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>08</span><strong>Home</strong><em>staging</em><i>+</i></summary>
+          <div><p>Przygotowanie nieruchomości do sprzedaży lub wynajmu podnosząc jego walory estetyczne, przeprowadzenie metamorfoz, zmiana układu funkcjonalnego.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>09</span><strong>Mieszkanie</strong><em>bez barier</em><i>+</i></summary>
+          <div><p>Aranżacja przestrzeni mieszkalnej — ciekawe i praktyczne rozwiązania z uwzględnieniem szczególnych potrzeb osób niepełnosprawnych.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>10</span><strong>Inwentaryzacja i analiza</strong><em>terenów zielonych</em><i>+</i></summary>
+          <div><p>Wykonanie pełnej inwentaryzacji zieleni dla inwestorów prywatnych, deweloperów, jednostek państwowych. Wykonanie opracowania gospodarki zielenią istniejącą ze wskazówkami do pielęgnacji, wytycznymi do wycinki drzew w złym stanie zdrowotnym, czy kolidujące z inwestycją. Sporządzamy wniosek o wycinkę wraz z tabelą opłat. Dzięki współpracy z geodetami jesteśmy w stanie precyzyjnie określić lokalizację drzew i krzewów w terenie.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>11</span><strong>Projekty ogrodów</strong><em>przydomowych</em><i>+</i></summary>
+          <div><p>Projekt ogrodu składa się z kilku arkuszy, które uwzględniają wszystkie projektowane rozwiązania: nasadzenia roślinne, zagospodarowanie przestrzenne oraz funkcjonalne terenem, rzuty nawierzchni, arkusze techniczne z małą architekturą gotowe do przekazania wykonawcom, arkusz przedstawiający projekt nawadniania, arkusz oświetlenia ogrodowego itp. — zależne od potrzeb klienta. Dodatkowo sporządzane są fotorealistyczne wizualizacje 3D oraz wirtualny spacer po ogrodzie.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>12</span><strong>Projekty</strong><em>nawierzchni</em><i>+</i></summary>
+          <div><p>Wzory nawierzchni, układy kolorystyczne, dobór materiałów, kosztorys budowlany, realizacja przez wykonawców.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>13</span><strong>Projekty</strong><em>nasadzeń</em><i>+</i></summary>
+          <div><p>Dobór gatunkowy roślin, wytyczne względem pielęgnacji, kosztorysy nasadzeń.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>14</span><strong>Projekty</strong><em>małej architektury</em><i>+</i></summary>
+          <div><p>Ogrodzenia, śmietniki, budynki gospodarcze, altany, tarasy oraz inne elementy małej architektury ogrodowej — dobór materiałowy, rysunki techniczne, przekroje, realizacja przez wykonawców.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>15</span><strong>Projekty</strong><em>elewacji</em><i>+</i></summary>
+          <div><p>Dobór materiałów wykończeniowych, kolorystyki, stolarki. Elewacje przedstawione w postaci widoków oraz modelu 3D.</p></div>
+        </details>
+        <details class="service">
+          <summary><span>16</span><strong>Kosztorysy</strong><em>budowlane</em><i>+</i></summary>
+          <div><p>Opracowanie profesjonalnej dokumentacji kosztorysowej uwzględniającej: przedmiary robót, kosztorysy szczegółowe, kosztorysy inwestorskie, kosztorysy ofertowe i zamienne, zestawienia kosztów inwestycji. Przygotowujemy kompleksowe kosztorysy budowlane.</p></div>
+        </details>
       </div>
     </section>
 
-    <section class="garden-break reveal">
-      <img src="break-garden.png" alt="Nowoczesny ogród nocą">
-      <div class="garden-break-copy">
-        <span>Wnętrza + ogrody</span>
-        <h2>DOM NIE KOŃCZY SIĘ<br>NA ELEWACJI.</h2>
-      </div>
-    </section>
-
-    <section class="process section" id="proces">
-      <div class="section-top reveal">
-        <div class="eyebrow">Proces</div>
-        <h2 class="display">OD PIERWSZEJ ROZMOWY<br>DO GOTOWEJ PRZESTRZENI.</h2>
-      </div>
-      <div class="process-track">
-        <article class="reveal"><span>01</span><h3>Rozmowa</h3><p>Ustalamy zakres, potrzeby i sposób pracy.</p></article>
-        <article class="reveal"><span>02</span><h3>Koncepcja</h3><p>Budujemy układ funkcjonalny i kierunek wizualny.</p></article>
-        <article class="reveal"><span>03</span><h3>Dokumentacja</h3><p>Przygotowujemy rozwiązania i rysunki dla wykonawców.</p></article>
-        <article class="reveal"><span>04</span><h3>Realizacja</h3><p>W razie potrzeby prowadzimy nadzór nad projektem.</p></article>
-      </div>
-    </section>
-
-    <section class="book-break section reveal">
-      <div class="book-media"><img src="break-book.png" alt="Notes Pracowni Oversize"></div>
-      <div class="book-copy">
-        <span class="eyebrow">Pracownia Oversize</span>
-        <h2 class="display">KAŻDY PROJEKT<br>MA SWÓJ PUNKT<br>WYJŚCIA.</h2>
-        <p>Zaczynamy od rozmowy i miejsca. Reszta wynika z decyzji, które mają sens dla konkretnego wnętrza i konkretnej osoby.</p>
+    <section class="quote-divider">
+      <img src="divider-quote.jpg" alt="Minimalistyczna betonowa przestrzeń" loading="lazy">
+      <div class="quote-divider__shade"></div>
+      <div class="quote-divider__copy reveal">
+        <span>PRACOWNIA OVERSIZE / 04</span>
+        <p>Projektujemy przestrzenie,<br>które porządkują codzienność.</p>
       </div>
     </section>
 
     <section class="contact section" id="kontakt">
-      <div class="contact-head reveal">
-        <div class="eyebrow">Kontakt</div>
-        <h2 class="display">POROZMAWIAJMY.</h2>
+      <div class="contact__top reveal">
+        <span class="section-no">05 / KONTAKT</span>
+        <h2>Porozmawiajmy<br>o Twojej przestrzeni.</h2>
       </div>
-      <div class="contact-body reveal">
-        <div class="contact-info">
-          <a href="tel:+48607112841"><small>Telefon</small><strong>607 112 841</strong></a>
-          <a href="mailto:biuro@pracowniaoversize.pl"><small>E-mail</small><strong>biuro@pracowniaoversize.pl</strong></a>
-          <div><small>Godziny pracy</small><strong>9:00–17:00</strong></div>
+      <div class="contact__grid">
+        <div class="contact__info reveal">
+          <div class="contact__brandline">PRACOWNIA OVERSIZE</div>
+          <p>Projekty wnętrz i ogrodów — Jasło</p>
+          <dl>
+            <div><dt>ADRES</dt><dd>38-200 Jasło</dd></div>
+            <div><dt>TELEFON</dt><dd><a href="tel:+48607112841">607 112 841</a></dd></div>
+            <div><dt>E-MAIL</dt><dd><a href="mailto:biuro@pracowniaoversize.pl">biuro@pracowniaoversize.pl</a></dd></div>
+            <div><dt>ARCHITEKT</dt><dd>Małgorzata Warywoda</dd></div>
+          </dl>
         </div>
-        <a class="contact-button" href="mailto:biuro@pracowniaoversize.pl">Napisz do nas <span>↗</span></a>
+
+        <form class="contact-form reveal" data-contact-form>
+          <div class="form-row">
+            <label><span>Imię i nazwisko</span><input type="text" name="name" required></label>
+            <label><span>E-mail</span><input type="email" name="email" required></label>
+          </div>
+          <label><span>Telefon</span><input type="tel" name="phone"></label>
+          <label><span>Opowiedz krótko o projekcie</span><textarea name="message" rows="5" required></textarea></label>
+          <button class="button button--dark" type="submit">Wyślij wiadomość <span>↗</span></button>
+          <p class="form-note">Formularz otworzy wiadomość e-mail w Twoim programie pocztowym.</p>
+        </form>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="footer-brand"><img src="logo.png" alt=""><span>Pracownia Oversize</span></div>
-    <nav><a href="#realizacje">Realizacje</a><a href="#oferta">Oferta</a><a href="#kontakt">Kontakt</a></nav>
-    <div class="footer-end"><span>© 2026</span><a href="#top">Do góry ↑</a></div>
+    <a class="brand brand--footer" href="#start">
+      <img src="logo-mark.png" alt="" />
+      <span class="brand-copy"><strong>PRACOWNIA OVERSIZE</strong><small>wnętrza / krajobraz</small></span>
+    </a>
+    <p>© <span data-year></span> Pracownia Oversize</p>
+    <a href="#start">Do góry ↑</a>
   </footer>
+
+  <div class="lightbox" data-lightbox-modal aria-hidden="true">
+    <button class="lightbox__close" type="button" aria-label="Zamknij">×</button>
+    <img src="" alt="Powiększenie realizacji" data-lightbox-image>
+  </div>
+
+  <div class="cookie" data-cookie>
+    <p>Ta strona wykorzystuje pliki cookies niezbędne do prawidłowego działania i prezentacji projektu.</p>
+    <button type="button" data-cookie-ok>OK</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
