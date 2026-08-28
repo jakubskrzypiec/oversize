@@ -1,12 +1,20 @@
+document.documentElement.classList.add('js');
+
 const body = document.body;
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('[data-menu-button]');
 const mobileMenu = document.querySelector('[data-mobile-menu]');
 const progress = document.querySelector('.scroll-marker i');
+const walkthrough = document.querySelector('[data-walkthrough]');
+const walkFrames = [...document.querySelectorAll('[data-walk-frame]')];
+const walkCopy = document.querySelector('[data-walk-copy]');
+const walkInstruction = document.querySelector('[data-walk-instruction]');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const updateScrollState = () => {
   const offset = window.scrollY;
-  header?.classList.toggle('is-solid', offset > 28);
+  const walkthroughComplete = !walkthrough || walkthrough.getBoundingClientRect().bottom <= window.innerHeight;
+  header?.classList.toggle('is-solid', offset > 28 && walkthroughComplete);
   if (progress) {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.height = `${max > 0 ? (offset / max) * 100 : 0}%`;
@@ -14,6 +22,45 @@ const updateScrollState = () => {
 };
 updateScrollState();
 window.addEventListener('scroll', updateScrollState, { passive: true });
+
+let walkTicking = false;
+const updateWalkthrough = () => {
+  if (!walkthrough || !walkFrames.length || reducedMotion) return;
+  const top = walkthrough.getBoundingClientRect().top;
+  const scrollRange = Math.max(1, walkthrough.offsetHeight - window.innerHeight);
+  const amount = Math.min(1, Math.max(0, -top / scrollRange));
+  const point = amount * (walkFrames.length - 1);
+  const current = Math.floor(point);
+  const transition = point - current;
+  const last = walkFrames.length - 1;
+
+  walkFrames.forEach((frame, index) => {
+    let opacity = 0;
+    if (index === current) opacity = 1 - transition;
+    if (index === Math.min(current + 1, last)) opacity = transition;
+    if (amount === 1 && index === last) opacity = 1;
+    frame.style.opacity = String(opacity);
+    frame.style.transform = `scale(${1.035 - amount * .025})`;
+  });
+
+  const copyAmount = Math.min(1, Math.max(0, (amount - .68) / .2));
+  if (walkCopy) {
+    walkCopy.style.opacity = String(copyAmount);
+    walkCopy.style.transform = `translateY(${(1 - copyAmount) * 16}px)`;
+  }
+  if (walkInstruction) walkInstruction.style.opacity = String(1 - Math.min(1, amount / .17));
+  walkTicking = false;
+};
+
+const requestWalkthroughUpdate = () => {
+  if (walkTicking) return;
+  walkTicking = true;
+  window.requestAnimationFrame(updateWalkthrough);
+};
+
+updateWalkthrough();
+window.addEventListener('scroll', requestWalkthroughUpdate, { passive: true });
+window.addEventListener('resize', requestWalkthroughUpdate, { passive: true });
 
 const setMenu = (isOpen) => {
   menuButton?.setAttribute('aria-expanded', String(isOpen));

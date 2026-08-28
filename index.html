@@ -23,11 +23,19 @@
   <div class="mobile-menu" id="mobile-menu" data-mobile-menu aria-hidden="true"><a href="#pracownia"><small>01</small>Pracownia</a><a href="#realizacje"><small>02</small>Realizacje</a><a href="#zakres"><small>03</small>Zakres</a><a href="#kontakt"><small>04</small>Kontakt</a></div>
 
   <main id="content">
-    <section class="hero" id="start" aria-labelledby="hero-title">
-      <img class="hero__image" src="hero-natural-v3.webp" alt="Wnętrze z kamienną zabudową, grafitowym kominkiem i szałwiowym fotelem" fetchpriority="high">
-      <div class="hero__shade" aria-hidden="true"></div>
-      <div class="hero__content"><p>Wnętrza / krajobraz / Jasło</p><h1 id="hero-title">Miejsce,<br><em>które ma sens.</em></h1><a href="#pracownia">Poznaj pracownię <span aria-hidden="true">↓</span></a></div>
-      <p class="hero__edge">Pracownia Oversize<br>od 2016</p>
+    <section class="walkthrough" id="start" data-walkthrough aria-labelledby="hero-title">
+      <div class="walkthrough__sticky">
+        <div class="walkthrough__frames" aria-hidden="true">
+          <img class="walkthrough__frame is-active" src="walkthrough-01-door.webp" alt="" data-walk-frame="0" fetchpriority="high">
+          <img class="walkthrough__frame" src="walkthrough-02-threshold.webp" alt="" data-walk-frame="1">
+          <img class="walkthrough__frame" src="walkthrough-03-hall.webp" alt="" data-walk-frame="2">
+          <img class="walkthrough__frame" src="walkthrough-04-living.webp" alt="" data-walk-frame="3">
+        </div>
+        <div class="walkthrough__shade" aria-hidden="true"></div>
+        <div class="walkthrough__content" data-walk-copy><p>Wnętrza / krajobraz / Jasło</p><h1 id="hero-title">Miejsce,<br><em>które ma sens.</em></h1><a href="#pracownia">Poznaj pracownię <span aria-hidden="true">↓</span></a></div>
+        <p class="walkthrough__instruction" data-walk-instruction>Przewiń, aby wejść <span aria-hidden="true">↓</span></p>
+        <p class="walkthrough__edge">Pracownia Oversize<br>od 2016</p>
+      </div>
     </section>
 
     <section class="prologue" id="pracownia" aria-labelledby="prologue-title">
