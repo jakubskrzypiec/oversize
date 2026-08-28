@@ -1,0 +1,47 @@
+PRACOWNIA OVERSIZE — informacje po wdrożeniu
+
+1. FORMSPREE
+Formularz jest przygotowany do wysyłki przez Formspree (fetch), ma walidację,
+honeypot i fallback mailto. Żeby wysyłał bezpośrednio ze strony, utwórz formularz
+w Formspree i w index.html podmień:
+
+data-formspree-endpoint="https://formspree.io/f/XXXXXXXX"
+
+na prawdziwy endpoint, np.:
+data-formspree-endpoint="https://formspree.io/f/abcde123"
+
+Dopóki ID nie jest podmienione, formularz automatycznie otwiera wiadomość do:
+biuro@pracowniaoversize.pl
+
+2. RZUTY W REALIZACJACH
+Obecne warstwy rysunkowe są autorskimi, ilustracyjnymi SVG inspirowanymi rzutem.
+Nie udają dokumentacji konkretnych realizacji. Gdy klientka przekaże prawdziwe
+rzuty tych 4 projektów, najlepiej podmienić zawartość .rail-item__plan na faktyczne
+rzuty, zachowując ten sam efekt clip-path.
+
+3. WĘDRÓWKA ŚWIATŁA
+Sekcja działa obecnie na jednym zdjęciu i animowanej masce światła. Aby zrobić
+pełny wariant 8:00 / 14:00 / 19:00, potrzebne są 3 zdjęcia DOKŁADNIE tego samego
+kadru, z tej samej pozycji aparatu, wykonane rano, po południu i wieczorem.
+
+4. OBRAZY RESPONSYWNE
+Dla project-*.jpg dodane są WebP oraz srcset (720 px + pełna szerokość).
+Przykładowa komenda ImageMagick do wygenerowania WebP:
+magick project-bath-02.jpg -resize "720x>" -strip -quality 82 project-bath-02-720.webp
+
+5. PORZĄDKI
+W przekazanej paczce nie było nieużywanych plików wymienionych w prompt.md
+(hero.png, hero.jpg, hero.webp, hero-v2.webp, hero-natural-v3.webp,
+przerywnik-*, divider-*, break-*, walkthrough-*, notebook.webp, quote.webp).
+Dlatego żadnego istniejącego pliku wejściowego nie usunięto na siłę.
+Wszystkie obrazy obecne w tej finalnej paczce są używane w index.html.
+
+6. WCAG / KONTRAST
+Jasny tekst na hero, passage i sekcji światła otrzymał mocniejsze stałe overlaye.
+Główne pary kolorów tekst/tło mają kontrast AA (większość wyraźnie powyżej 4.5:1).
+Focus-visible jest widoczny; zachowane są skip-link, Escape i powrót fokusa w lightboxie.
+
+7. ANIMACJE
+Zero bibliotek. Vanilla JS. Scrollowe efekty są aktualizowane przez
+requestAnimationFrame, scroll listenery są passive. prefers-reduced-motion
+ustawia efekty od razu w stanie końcowym.
