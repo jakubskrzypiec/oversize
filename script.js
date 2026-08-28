@@ -35,6 +35,32 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: .08, rootMargin: '0px 0px -4% 0px' });
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
+const parallaxImages = [...document.querySelectorAll('[data-parallax]')];
+let parallaxTicking = false;
+const updateParallax = () => {
+  if (!parallaxImages.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth <= 620) {
+    parallaxTicking = false;
+    return;
+  }
+  const viewportMiddle = window.innerHeight / 2;
+  parallaxImages.forEach((image) => {
+    const frame = image.parentElement?.getBoundingClientRect();
+    if (!frame || frame.bottom < 0 || frame.top > window.innerHeight) return;
+    const position = (frame.top + frame.height / 2 - viewportMiddle) / window.innerHeight;
+    const shift = Math.max(-18, Math.min(18, position * -18));
+    image.style.transform = `translate3d(0, ${shift}px, 0) scale(1.055)`;
+  });
+  parallaxTicking = false;
+};
+const requestParallax = () => {
+  if (parallaxTicking) return;
+  parallaxTicking = true;
+  window.requestAnimationFrame(updateParallax);
+};
+updateParallax();
+window.addEventListener('scroll', requestParallax, { passive: true });
+window.addEventListener('resize', requestParallax, { passive: true });
+
 const modal = document.querySelector('[data-lightbox-modal]');
 const modalImage = document.querySelector('[data-lightbox-image]');
 const modalCaption = document.querySelector('[data-lightbox-caption]');
