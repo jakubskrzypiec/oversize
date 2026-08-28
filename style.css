@@ -422,9 +422,14 @@ h2 {
 .collaboration__steps h3 { margin: -5px 0 0; font: 500 clamp(20px, 2vw, 31px)/1.2 var(--display); letter-spacing: -.055em; }
 .collaboration__steps p { max-width: 650px; margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.78; }
 
-.light-study { position: relative; height: 250vh; background: var(--graphite-2); }
-.light-study__sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; color: var(--paper); background: #241f1c; }
-.light-study__visual { position: absolute; inset: 0; }
+.light-study { padding: 0 var(--pad) clamp(68px, 8vw, 112px); background: var(--graphite-2); }
+.light-study__static {
+  position: relative;
+  min-height: clamp(420px, 44vw, 560px);
+  overflow: hidden;
+  color: var(--paper);
+  background: #241f1c;
+}
 .light-study__image {
   position: absolute;
   inset: 0;
@@ -432,39 +437,20 @@ h2 {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0;
-  will-change: opacity;
-  transition: opacity .28s linear;
 }
-.light-study__image--morning { opacity: 1; filter: brightness(1.08) saturate(.88) contrast(.95) hue-rotate(-6deg); }
-.light-study__image--noon { filter: brightness(1.02) saturate(1) contrast(1); }
-.light-study__image--evening { filter: brightness(.85) saturate(.8) contrast(.98) sepia(.14) hue-rotate(-14deg); }
-.light-study__base-shade { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(18, 16, 15, .83) 0%, rgba(18, 16, 15, .57) 43%, rgba(18, 16, 15, .22) 74%, rgba(18, 16, 15, .10) 100%); }
-.light-study__beam {
-  position: absolute;
+.light-study__base-shade { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(18, 16, 15, .84) 0%, rgba(18, 16, 15, .60) 38%, rgba(18, 16, 15, .26) 70%, rgba(18, 16, 15, .12) 100%); }
+.light-study__content {
+  position: relative;
   z-index: 2;
-  inset: -20% -45%;
-  background: linear-gradient(104deg, transparent 36%, rgba(255, 224, 168, .10) 44%, rgba(255, 234, 196, .52) 51%, rgba(255, 241, 218, .12) 59%, transparent 67%);
-  transform: translate3d(-34vw, 0, 0);
-  opacity: .56;
-  will-change: transform, opacity;
-  pointer-events: none;
+  min-height: clamp(420px, 44vw, 560px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(720px, 72vw);
+  padding: clamp(44px, 6vw, 72px) 0 clamp(44px, 6vw, 72px) var(--pad);
 }
-.light-study__content { position: absolute; z-index: 3; left: var(--pad); top: 50%; width: min(760px, 72vw); transform: translateY(-50%); }
-.light-study__content h2 { margin-top: 34px; max-width: 720px; }
-.light-study__content > p:last-child { max-width: 530px; margin: 24px 0 0; color: #eadfd5; font-size: 14px; line-height: 1.78; }
-.light-study__time { position: absolute; z-index: 3; right: var(--pad); bottom: clamp(42px, 6vh, 72px); width: 130px; height: 64px; }
-.light-study__time span {
-  position: absolute;
-  inset: auto 0 0 auto;
-  color: var(--paper);
-  font: 500 clamp(28px, 3.5vw, 56px)/1 var(--display);
-  letter-spacing: -.06em;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .25s ease, transform .25s ease;
-}
-.light-study__time span.is-active { opacity: 1; transform: none; }
+.light-study__content h2 { margin-top: 28px; max-width: 720px; }
+.light-study__content > p:last-child { max-width: 530px; margin: 22px 0 0; color: #eadfd5; font-size: 14px; line-height: 1.78; }
 
 .scope { padding: clamp(104px, 12vw, 166px) var(--pad); background: var(--stone-light); }
 .scope__intro { max-width: 880px; }
@@ -552,7 +538,6 @@ h2 {
 
   .collaboration__steps li { grid-template-columns: 60px minmax(190px, .75fr) minmax(0, 1fr); gap: 24px; }
 
-  .light-study__content { width: min(680px, 78vw); }
 
   .contact__layout { grid-template-columns: 1fr; }
   .contact__form-wrap { max-width: 700px; }
@@ -614,12 +599,11 @@ h2 {
   .collaboration__steps h3 { font-size: 21px; }
   .collaboration__steps p { font-size: 13.5px; }
 
-  .light-study { height: 220vh; }
-  .light-study__content { top: 44%; width: calc(100% - 38px); }
+  .light-study { padding: 0 19px 82px; }
+  .light-study__static { min-height: 430px; }
+  .light-study__content { width: calc(100% - 38px); min-height: 430px; padding: 42px 0 42px 19px; }
   .light-study__content h2 { margin-top: 28px; }
   .light-study__content > p:last-child { font-size: 13px; }
-  .light-study__time { right: 19px; bottom: 32px; width: 110px; height: 48px; }
-  .light-study__time span { font-size: 34px; }
   .light-study__base-shade { background: linear-gradient(90deg, rgba(18, 16, 15, .84), rgba(18, 16, 15, .45)); }
 
   .scope { padding-top: 82px; padding-bottom: 82px; }
