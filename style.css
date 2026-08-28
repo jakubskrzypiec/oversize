@@ -419,7 +419,7 @@ h2 {
 .collaboration__steps h3 { margin: -5px 0 0; font: 500 clamp(20px, 2vw, 31px)/1.2 var(--display); letter-spacing: -.055em; }
 .collaboration__steps p { max-width: 650px; margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.78; }
 
-.light-study { padding: 0 var(--pad) clamp(68px, 8vw, 112px); background: var(--graphite-2); }
+.light-study { padding: 0; background: var(--graphite-2); }
 .light-study__static {
   position: relative;
   min-height: clamp(420px, 44vw, 560px);
@@ -594,7 +594,7 @@ h2 {
   .collaboration__steps h3 { font-size: 21px; }
   .collaboration__steps p { font-size: 13.5px; }
 
-  .light-study { padding: 0 19px 82px; }
+  .light-study { padding: 0; }
   .light-study__static { min-height: 430px; }
   .light-study__content { width: calc(100% - 38px); min-height: 430px; padding: 42px 0 42px 19px; }
   .light-study__content h2 { margin-top: 28px; }
