@@ -1,11 +1,19 @@
+const body = document.body;
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('[data-menu-button]');
 const mobileMenu = document.querySelector('[data-mobile-menu]');
-const body = document.body;
+const progress = document.querySelector('.scroll-marker i');
 
-const updateHeader = () => header?.classList.toggle('is-solid', window.scrollY > 24);
-updateHeader();
-window.addEventListener('scroll', updateHeader, { passive: true });
+const updateScrollState = () => {
+  const offset = window.scrollY;
+  header?.classList.toggle('is-solid', offset > 28);
+  if (progress) {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.height = `${max > 0 ? (offset / max) * 100 : 0}%`;
+  }
+};
+updateScrollState();
+window.addEventListener('scroll', updateScrollState, { passive: true });
 
 const setMenu = (isOpen) => {
   menuButton?.setAttribute('aria-expanded', String(isOpen));
@@ -16,7 +24,7 @@ const setMenu = (isOpen) => {
 
 menuButton?.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
 mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
+window.addEventListener('resize', () => { if (window.innerWidth > 960) setMenu(false); });
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -55,11 +63,11 @@ document.querySelectorAll('[data-lightbox]').forEach((trigger) => {
 });
 closeButton?.addEventListener('click', closeLightbox);
 modal?.addEventListener('click', (event) => { if (event.target === modal) closeLightbox(); });
+
 window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    if (modal?.classList.contains('is-open')) closeLightbox();
-    else if (menuButton?.getAttribute('aria-expanded') === 'true') setMenu(false);
-  }
+  if (event.key !== 'Escape') return;
+  if (modal?.classList.contains('is-open')) closeLightbox();
+  else if (menuButton?.getAttribute('aria-expanded') === 'true') setMenu(false);
 });
 
 const form = document.querySelector('[data-contact-form]');
