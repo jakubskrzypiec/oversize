@@ -81,11 +81,13 @@
     <section class="project-rail" id="realizacje" aria-labelledby="projects-title">
       <header class="project-rail__head reveal">
         <p class="section-tag section-tag--light">Wybrane prace</p>
-        <h2 id="projects-title">Realizacje pokazane od projektu do obrazu.</h2>
-        <p>Na kaflu odsłaniamy autorską warstwę rysunkową inspirowaną rzutem. Kliknięcie otwiera pełny kadr realizacji.</p>
+        <h2 id="projects-title">Cztery wybrane realizacje w jednym widoku.</h2>
+        <p>Kliknięcie otwiera pełny kadr realizacji.</p>
       </header>
 
-      <div class="project-rail__items" aria-label="Wybrane realizacje">
+      <div class="project-rail__stage">
+        <p class="project-rail__side project-rail__side--left" aria-hidden="true">OVERSIZE</p>
+        <div class="project-rail__items" aria-label="Wybrane realizacje">
         <article class="rail-case">
           <button class="rail-item rail-item--bath" type="button" data-lightbox="project-bath-02.jpg" data-caption="Łazienka / projekt wnętrza">
             <div class="rail-item__plan" aria-hidden="true">
@@ -145,6 +147,8 @@
           </button>
           <div class="rail-case__meta"><span>Dom rodzinny</span><p>Zieleń, drewno i miękkie faktury porządkują otwartą część dzienną.</p></div>
         </article>
+        </div>
+        <p class="project-rail__side project-rail__side--right" aria-hidden="true">OVERSIZE</p>
       </div>
     </section>
 
@@ -172,7 +176,11 @@
 
     <section class="light-study" data-light-study aria-labelledby="light-title">
       <div class="light-study__sticky">
-        <img class="light-study__image" src="interlude-courtyard-v4.webp" width="1672" height="941" alt="Dziedziniec i wnętrze obserwowane przy zmieniającym się świetle" loading="lazy">
+        <div class="light-study__visual" aria-hidden="true">
+          <img class="light-study__image light-study__image--morning" src="interlude-courtyard-v4.webp" width="1672" height="941" alt="" loading="lazy">
+          <img class="light-study__image light-study__image--noon" src="interlude-courtyard-v4.webp" width="1672" height="941" alt="" loading="lazy">
+          <img class="light-study__image light-study__image--evening" src="interlude-courtyard-v4.webp" width="1672" height="941" alt="" loading="lazy">
+        </div>
         <div class="light-study__base-shade" aria-hidden="true"></div>
         <div class="light-study__beam" data-light-beam aria-hidden="true"></div>
         <div class="light-study__content">
@@ -209,7 +217,6 @@
       </div>
     </section>
 
-    <figure class="image-break"><img src="interlude-courtyard-v4.webp" width="1672" height="941" alt="Trawertynowy dziedziniec z ciemną bramą, kawowym fotelem i ogrodem" loading="lazy" data-parallax></figure>
 
     <section class="contact" id="kontakt" aria-labelledby="contact-title">
       <div class="contact__line"><span>Kontakt</span><span>Jasło · projekty w całej Polsce</span></div>

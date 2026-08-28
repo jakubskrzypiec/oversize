@@ -28,24 +28,14 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: .13, rootMargin: '0px 0px -7% 0px' });
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-const railItems = [...document.querySelectorAll('.rail-item')];
-const activeRailItems = new Set();
-const railObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      activeRailItems.add(entry.target);
-    } else {
-      activeRailItems.delete(entry.target);
-      if (window.innerWidth <= 620 && !reducedMotion.matches) entry.target.style.setProperty('--wipe', '0%');
-    }
-  });
-}, { threshold: 0, rootMargin: '15% 0px 15% 0px' });
-railItems.forEach((item) => railObserver.observe(item));
-
 const parallaxImages = [...document.querySelectorAll('[data-parallax]')];
 const lightStudy = document.querySelector('[data-light-study]');
 const lightBeam = document.querySelector('[data-light-beam]');
 const lightTimes = [...document.querySelectorAll('[data-light-time]')];
+const lightMorning = document.querySelector('.light-study__image--morning');
+const lightNoon = document.querySelector('.light-study__image--noon');
+const lightEvening = document.querySelector('.light-study__image--evening');
+const railItems = [...document.querySelectorAll('.rail-item')];
 
 const updateLightStudy = (viewportHeight) => {
   if (!lightStudy || !lightBeam) return;
@@ -53,6 +43,9 @@ const updateLightStudy = (viewportHeight) => {
   if (reducedMotion.matches) {
     lightBeam.style.transform = 'translate3d(32vw, 0, 0)';
     lightBeam.style.opacity = '.34';
+    if (lightMorning) lightMorning.style.opacity = '0';
+    if (lightNoon) lightNoon.style.opacity = '0';
+    if (lightEvening) lightEvening.style.opacity = '1';
     lightTimes.forEach((time, index) => time.classList.toggle('is-active', index === lightTimes.length - 1));
     return;
   }
@@ -61,35 +54,21 @@ const updateLightStudy = (viewportHeight) => {
   const travel = Math.max(1, rect.height - viewportHeight);
   const sectionProgress = clamp(-rect.top / travel);
   const beamX = -34 + sectionProgress * 68;
-  const beamOpacity = .42 + Math.sin(sectionProgress * Math.PI) * .22;
+  const beamOpacity = .36 + Math.sin(sectionProgress * Math.PI) * .26;
 
   lightBeam.style.transform = `translate3d(${beamX.toFixed(2)}vw, 0, 0)`;
   lightBeam.style.opacity = beamOpacity.toFixed(3);
 
+  const morningOpacity = clamp(1 - sectionProgress * 2);
+  const noonOpacity = clamp(1 - Math.abs(sectionProgress - 0.5) / 0.5);
+  const eveningOpacity = clamp((sectionProgress - 0.5) * 2);
+
+  if (lightMorning) lightMorning.style.opacity = morningOpacity.toFixed(3);
+  if (lightNoon) lightNoon.style.opacity = noonOpacity.toFixed(3);
+  if (lightEvening) lightEvening.style.opacity = eveningOpacity.toFixed(3);
+
   const timeIndex = sectionProgress < .34 ? 0 : sectionProgress < .68 ? 1 : 2;
   lightTimes.forEach((time, index) => time.classList.toggle('is-active', index === timeIndex));
-};
-
-const updateMobileRail = (viewportHeight) => {
-  if (window.innerWidth > 620) {
-    railItems.forEach((item) => item.style.removeProperty('--wipe'));
-    return;
-  }
-
-  if (reducedMotion.matches) {
-    railItems.forEach((item) => item.style.setProperty('--wipe', '48%'));
-    return;
-  }
-
-  activeRailItems.forEach((item) => {
-    const rect = item.getBoundingClientRect();
-    const itemCenter = rect.top + rect.height / 2;
-    const viewportCenter = viewportHeight / 2;
-    const distance = Math.abs(itemCenter - viewportCenter);
-    const proximity = 1 - clamp(distance / (viewportHeight * .72));
-    const wipe = proximity * 84;
-    item.style.setProperty('--wipe', `${wipe.toFixed(2)}%`);
-  });
 };
 
 const updateParallax = (viewportHeight) => {
@@ -107,40 +86,6 @@ const updateParallax = (viewportHeight) => {
     image.style.transform = `translate3d(0, ${shift.toFixed(2)}px, 0) scale(1.055)`;
   });
 };
-
-let frameRequested = false;
-const updateScrollEffects = () => {
-  const viewportHeight = window.innerHeight;
-  const offset = window.scrollY;
-
-  header?.classList.toggle('is-solid', offset > 28);
-
-  if (progress) {
-    const max = document.documentElement.scrollHeight - viewportHeight;
-    const value = max > 0 ? clamp(offset / max) : 0;
-    progress.style.transform = `scaleY(${value.toFixed(4)})`;
-  }
-
-  updateParallax(viewportHeight);
-  updateMobileRail(viewportHeight);
-  updateLightStudy(viewportHeight);
-  frameRequested = false;
-};
-
-const requestScrollUpdate = () => {
-  if (frameRequested) return;
-  frameRequested = true;
-  window.requestAnimationFrame(updateScrollEffects);
-};
-
-window.addEventListener('scroll', requestScrollUpdate, { passive: true });
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 960) setMenu(false);
-  requestScrollUpdate();
-}, { passive: true });
-reducedMotion.addEventListener?.('change', requestScrollUpdate);
-requestScrollUpdate();
-
 const modal = document.querySelector('[data-lightbox-modal]');
 const modalImage = document.querySelector('[data-lightbox-image]');
 const modalCaption = document.querySelector('[data-lightbox-caption]');
